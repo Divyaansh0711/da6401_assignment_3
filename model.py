@@ -46,8 +46,8 @@ except ImportError:
 
 
 # Fill these after training and uploading files to Google Drive.
-CHECKPOINT_GDRIVE_ID = "https://drive.google.com/file/d/1XCP8S-A6buXo0aWTC13nYumhATWYX_mA/view?usp=share_link"
-VOCAB_GDRIVE_ID = "https://drive.google.com/file/d/1Bi9f3PeapZX5M-eCtT6eFAc9k89BmiWt/view?usp=share_link"
+CHECKPOINT_GDRIVE_ID = "1XCP8S-A6buXo0aWTC13nYumhATWYX_mA"
+VOCAB_GDRIVE_ID = "1Bi9f3PeapZX5M-eCtT6eFAc9k89BmiWt"
 
 DEFAULT_CHECKPOINT_PATH = "/tmp/checkpoint.pt"
 DEFAULT_VOCAB_PATH = "/tmp/vocabs.json"

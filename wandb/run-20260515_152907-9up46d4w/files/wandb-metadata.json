@@ -1,0 +1,38 @@
+{
+  "os": "macOS-15.6-arm64-arm-64bit-Mach-O",
+  "python": "CPython 3.13.0",
+  "startedAt": "2026-05-15T09:59:07.661707Z",
+  "program": "/Users/divyaanshjha/Desktop/ass_3/da6401_assignment_3/train.py",
+  "codePath": "train.py",
+  "codePathLocal": "train.py",
+  "git": {
+    "remote": "https://github.com/Divyaansh0711/da6401_assignment_3.git",
+    "commit": "33b83d8dd395b4386b30893f949d4d715ec4798d"
+  },
+  "email": "dkjha0711@gmail.com",
+  "root": "/Users/divyaanshjha/Desktop/ass_3/da6401_assignment_3",
+  "host": "Durgeshs-MacBook-Pro.local",
+  "executable": "/Users/divyaanshjha/Desktop/ass_3/da6401_assignment_3/venv/bin/python",
+  "cpu_count": 8,
+  "cpu_count_logical": 8,
+  "disk": {
+    "/": {
+      "total": "494384795648",
+      "used": "374569664512"
+    }
+  },
+  "memory": {
+    "total": "17179869184"
+  },
+  "apple": {
+    "name": "Apple M2",
+    "ecpuCores": 4,
+    "pcpuCores": 4,
+    "gpuCores": 10,
+    "memoryGb": 16,
+    "swapTotalBytes": "2147483648",
+    "ramTotalBytes": "17179869184",
+    "macModel": "Mac14,7"
+  },
+  "writerId": "iirouw4e598rieg98sknzuyz059rqglk"
+}
