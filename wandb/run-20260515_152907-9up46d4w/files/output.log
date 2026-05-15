@@ -1,0 +1,56 @@
+`trust_remote_code` is not supported anymore.
+Please check that the Hugging Face dataset 'bentrevett/multi30k' isn't based on a loading script and remove `trust_remote_code`.
+If the dataset is based on a loading script, please ask the dataset author to remove it and convert it to a standard format like Parquet.
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+`trust_remote_code` is not supported anymore.
+Please check that the Hugging Face dataset 'bentrevett/multi30k' isn't based on a loading script and remove `trust_remote_code`.
+If the dataset is based on a loading script, please ask the dataset author to remove it and convert it to a standard format like Parquet.
+`trust_remote_code` is not supported anymore.
+Please check that the Hugging Face dataset 'bentrevett/multi30k' isn't based on a loading script and remove `trust_remote_code`.
+If the dataset is based on a loading script, please ask the dataset author to remove it and convert it to a standard format like Parquet.
+Traceback (most recent call last):
+  File "/Users/divyaanshjha/Desktop/ass_3/da6401_assignment_3/train.py", line 571, in <module>
+    run_training_experiment()
+    ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/divyaanshjha/Desktop/ass_3/da6401_assignment_3/train.py", line 508, in run_training_experiment
+    train_loss = run_epoch(
+        data_iter=train_loader,
+    ...<6 lines>...
+        device=device,
+    )
+  File "/Users/divyaanshjha/Desktop/ass_3/da6401_assignment_3/train.py", line 130, in run_epoch
+    logits = model(src, tgt_input, src_mask, tgt_mask)
+  File "/Users/divyaanshjha/Desktop/ass_3/da6401_assignment_3/venv/lib/python3.13/site-packages/torch/nn/modules/module.py", line 1778, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/Users/divyaanshjha/Desktop/ass_3/da6401_assignment_3/venv/lib/python3.13/site-packages/torch/nn/modules/module.py", line 1789, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/Users/divyaanshjha/Desktop/ass_3/da6401_assignment_3/model.py", line 561, in forward
+    logits = self.decode(memory, src_mask, tgt, tgt_mask)
+  File "/Users/divyaanshjha/Desktop/ass_3/da6401_assignment_3/model.py", line 548, in decode
+    decoder_out = self.decoder(tgt_emb, memory, src_mask, tgt_mask)
+  File "/Users/divyaanshjha/Desktop/ass_3/da6401_assignment_3/venv/lib/python3.13/site-packages/torch/nn/modules/module.py", line 1778, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/Users/divyaanshjha/Desktop/ass_3/da6401_assignment_3/venv/lib/python3.13/site-packages/torch/nn/modules/module.py", line 1789, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/Users/divyaanshjha/Desktop/ass_3/da6401_assignment_3/model.py", line 373, in forward
+    x = layer(x, memory, src_mask, tgt_mask)
+  File "/Users/divyaanshjha/Desktop/ass_3/da6401_assignment_3/venv/lib/python3.13/site-packages/torch/nn/modules/module.py", line 1778, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/Users/divyaanshjha/Desktop/ass_3/da6401_assignment_3/venv/lib/python3.13/site-packages/torch/nn/modules/module.py", line 1789, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/Users/divyaanshjha/Desktop/ass_3/da6401_assignment_3/model.py", line 319, in forward
+    self_attn_out = self.self_attn(x_norm, x_norm, x_norm, tgt_mask)
+  File "/Users/divyaanshjha/Desktop/ass_3/da6401_assignment_3/venv/lib/python3.13/site-packages/torch/nn/modules/module.py", line 1778, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/Users/divyaanshjha/Desktop/ass_3/da6401_assignment_3/venv/lib/python3.13/site-packages/torch/nn/modules/module.py", line 1789, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/Users/divyaanshjha/Desktop/ass_3/da6401_assignment_3/model.py", line 184, in forward
+    attn_output, attn_weights = scaled_dot_product_attention(Q, K, V, mask)
+                                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "/Users/divyaanshjha/Desktop/ass_3/da6401_assignment_3/model.py", line 88, in scaled_dot_product_attention
+    output = torch.matmul(attn_w, V)
+KeyboardInterrupt
