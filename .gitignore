@@ -3,9 +3,6 @@
 *.pth
 *.ckpt
 
-# Vocabulary / data files
-vocabs.json
-
 # Wandb logs
 wandb/
 
