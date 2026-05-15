@@ -1,0 +1,20 @@
+# Model checkpoints & large binaries
+*.pt
+*.pth
+*.ckpt
+
+# Vocabulary / data files
+vocabs.json
+
+# Wandb logs
+wandb/
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+venv/
+.env
+
+# OS
+.DS_Store
