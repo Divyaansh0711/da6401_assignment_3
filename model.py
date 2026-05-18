@@ -388,15 +388,15 @@ class Transformer(nn.Module):
         self,
         src_vocab_size: int = 10000,
         tgt_vocab_size: int = 10000,
-        d_model: int = 512,
-        N: int = 6,
+        d_model: int = 256,
+        N: int = 3,
         num_heads: int = 8,
-        d_ff: int = 2048,
+        d_ff: int = 512,
         dropout: float = 0.1,
         checkpoint_path: str = None,
         vocab_path: str = DEFAULT_VOCAB_PATH,
         max_len: int = 100,
-        load_checkpoint_by_default: bool = False,
+        load_checkpoint_by_default: bool = True,
     ) -> None:
         super().__init__()
 

@@ -797,6 +797,7 @@ def build_model_and_apply_ablation(config: Dict, src_vocab_size: int, tgt_vocab_
         num_heads=config["num_heads"],
         d_ff=config["d_ff"],
         dropout=config["dropout"],
+        load_checkpoint_by_default=False,
     ).to(device)
 
     if config["positional_encoding"] == "learned":
