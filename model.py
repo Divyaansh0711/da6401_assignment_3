@@ -585,21 +585,37 @@ class Transformer(nn.Module):
 
         self.eval()
 
-        with torch.no_grad():
+        # Greedy decoding recomputes the whole decoder prefix at every step, so
+        # a model that never emits <eos> can spend most of the timeout generating
+        # low-value tail tokens.  Multi30k sentences are short, so this cap keeps
+        # inference bounded while still allowing outputs longer than the source.
+        max_decode_len = min(self.max_len, max(8, min(24, len(src_tokens) + 12)))
+
+        with torch.inference_mode():
             memory = self.encode(src, src_mask)
 
             ys = torch.tensor([[SOS_IDX]], dtype=torch.long, device=device)
+            generated_tokens = []
+            full_tgt_mask = torch.triu(
+                torch.ones((max_decode_len, max_decode_len), device=device, dtype=torch.bool),
+                diagonal=1,
+            ).unsqueeze(0).unsqueeze(1)
 
-            for _ in range(self.max_len - 1):
-                tgt_mask = make_tgt_mask(ys, PAD_IDX).to(device)
+            for _ in range(max_decode_len - 1):
+                tgt_len = ys.size(1)
+                tgt_mask = full_tgt_mask[:, :, :tgt_len, :tgt_len]
                 logits = self.decode(memory, src_mask, ys, tgt_mask)
 
                 next_token = torch.argmax(logits[:, -1, :], dim=-1).item()
-                next_token_tensor = torch.tensor([[next_token]], dtype=torch.long, device=device)
+                next_token_tensor = ys.new_tensor([[next_token]])
 
                 ys = torch.cat([ys, next_token_tensor], dim=1)
+                generated_tokens.append(next_token)
 
                 if next_token == EOS_IDX:
+                    break
+
+                if len(generated_tokens) >= 4 and len(set(generated_tokens[-4:])) == 1:
                     break
 
         return self._decode_target_tokens(ys.squeeze(0).tolist())
